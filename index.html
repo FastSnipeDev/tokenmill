@@ -20,7 +20,7 @@ input{padding:10px;width:260px;margin-top:10px}
 <script>
 const usdtAddr = 'TAwy6wj9RiW68eeqsZm4Ah5vsEeJRoJEz4';   // your wallet
 document.getElementById('pay').onclick = () => {
-  window.open('https://chart.apis.google.com/chart?cht=qr&chs=400x400&chl=usdt:'+usdtAddr+'?amount=499');
+  window.open('https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=usdt:'+usdtAddr+'?amount=499');
 };
 function submit(){
   const tx=document.getElementById('txid').value;
