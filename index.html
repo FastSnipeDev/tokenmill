@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>TokenMill – 499 USDT Token Deploy</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<style>
+body{background:#111;color:#00d4aa;font-family:sans-serif;text-align:center;margin-top:10vh}
+button{padding:12px 24px;font-size:18px;background:#00d4aa;color:#000;border:0;border-radius:4px;cursor:pointer}
+input{padding:10px;width:260px;margin-top:10px}
+</style>
+</head>
+<body>
+<h1>TokenMill</h1>
+<p>Audited BEP-20 / ERC-20 deployed & verified within 24 h</p>
+<button id="pay">Pay 499 USDT (TRC20)</button><br>
+<input id="txid" placeholder="Paste TXID after payment">
+<button onclick="submit()">Submit TXID</button>
+
+<script>
+const usdtAddr = 'TAwy6wj9RiW68eeqsZm4Ah5vsEeJRoJEz4';  
+document.getElementById('pay').onclick = () => {
+  window.open('https://chart.apis.google.com/chart?cht=qr&chs=400x400&chl=usdt:'+usdtAddr+'?amount=499');
+};
+function submit(){
+  const tx=document.getElementById('txid').value;
+  fetch('https://formspree.io/f/myylybky',{
+     method:'POST',
+     headers:{'Content-Type':'application/json'},
+     body:JSON.stringify({tx})
+  });
+  alert('TXID received – check your e-mail within 24 h.');
+}
+</script>
+</body>
+</html>
